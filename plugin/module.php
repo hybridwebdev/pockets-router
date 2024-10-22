@@ -17,11 +17,15 @@ class module extends \pockets_forms\base {
         api\module::init();
         \pockets_router\crud\models\router\model::register();
 
-        add_filter( 'template_redirect', [ $this, 'router' ] );
+        add_filter( 'template_include', [ $this, 'router' ], 100 );
 
     }
 
-    function router(){
+    function router( $template ){
+
+        if( !$template) {
+            return;
+        }
 
         get_header();
 
