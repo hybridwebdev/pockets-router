@@ -6,7 +6,7 @@ class model extends \pockets\crud\model {
     use permissions;
     use validate_resource;
     
-    public static string $model_name = 'router';
+    public static string $model_name = 'node-tree/router';
 
     public string $get_resource      = __NAMESPACE__.'\get';
     public string $update_resource   = __NAMESPACE__.'\update';

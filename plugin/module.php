@@ -13,7 +13,7 @@ class module extends \pockets_forms\base {
     function __construct(){
         
         parent::__construct();
-        
+
         api\module::init();
         \pockets_router\crud\models\router\model::register();
 
@@ -28,10 +28,15 @@ class module extends \pockets_forms\base {
         }
 
         get_header();
-
-            echo \pockets::crud('router')::init(
+            
+            $route = \pockets::crud('node-tree/router')::init(
                 home_url( add_query_arg( null, null ) )
-            )->read( [ 'test' ] )['test'];
+            )->read( [ 'render', 'source' ] );
+
+            echo sprintf(
+                "<pockets-router class='p-2 bg-danger' :source='%s'></pockets-router>", 
+                $route['source'],
+            );
 
         get_footer();
 
