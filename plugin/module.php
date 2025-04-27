@@ -2,7 +2,7 @@
 namespace pockets_router\plugin;
 
 /**
-    Bootloader for Pockets Form extension
+    Bootloader for Plugin
 */
 
 #[\AllowDynamicProperties]
